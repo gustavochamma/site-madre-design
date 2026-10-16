@@ -7,7 +7,7 @@ const navTxt = { fontSize: 13, letterSpacing: 2 };
 export function Header({ variant = "light" }: { variant?: "light" | "hero" }) {
   const [open, setOpen] = useState(false);
   const hero = variant === "hero";
-  const links = hero
+  const links: [string, string][] = hero
     ? [["/portas", "PORTAS"], ["/projetos", "MÓVEIS"], ["/projetos", "PROJETOS"], ["/a-madre", "A MADRE"], ["/blog", "BLOG"]]
     : [["/portas", "PORTAS"], ["/projetos", "PROJETOS"], ["/a-madre", "A MADRE"], ["/blog", "BLOG"]];
   const line = hero ? "#F9F9F9" : "#1C1C1C";
@@ -57,7 +57,7 @@ export function Header({ variant = "light" }: { variant?: "light" | "hero" }) {
             </button>
           </div>
           <nav className="pad" style={{ display: "flex", flexDirection: "column", paddingTop: 40, ...navTxt }}>
-            {[...links, ["/contato", "ORÇAMENTO"]].map(([to, label]) => (
+            {[...links, ["/contato", "ORÇAMENTO"] as [string, string]].map(([to, label]) => (
               <Link key={label} to={to} onClick={() => setOpen(false)} style={{ padding: "16px 0", borderBottom: "1px solid #DEDEDE" }}>{label}</Link>
             ))}
           </nav>
