@@ -110,6 +110,8 @@ a.btn.light:hover { color: #e08a72; border-bottom-color: #e08a72; }
 .project-tile img { width: 100%; height: clamp(280px,30vw,440px); object-fit: cover; }
 .project-category { font-size: 13px; letter-spacing: 2px; color: var(--color-secundario); }
 .project-name { font-size: 26px; line-height: 1.15; }
+.door-photo, .project-tile .duo, .madre-cover .duo, .madre-feature-photo { background: var(--color-borda); }
+.photo-unavailable { visibility: hidden; }
 .madre-cover { padding-bottom: 112px; }
 .madre-cover img { width: 100%; height: clamp(300px,46vw,680px); object-fit: cover; }
 .madre-manifesto { margin-bottom: 112px; color: var(--color-offwhite); }

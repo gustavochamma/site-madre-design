@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { InternalPageTop } from "@/components/site/InternalPageTop";
+import { SiteImage } from "@/components/site/SiteImage";
 
 export const Route = createFileRoute("/projetos")({
   head: () => ({
@@ -37,7 +38,7 @@ function Projetos() {
     <InternalPageTop label="PROJETOS">Feitos <i>pela MADRE</i></InternalPageTop>
     <section className="pad projects-grid">
       {projects.map(([image, alt, category, name]) => <Link key={image} to="/contato" className="tile project-tile">
-        <div className="duo"><img src={`/images/${image}`} alt={alt} /></div>
+        <div className="duo"><SiteImage src={`/images/${image}`} alt={alt} /></div>
         <span className="project-category">{category}</span>
         <span className="serif project-name">{name}</span>
       </Link>)}

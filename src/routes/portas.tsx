@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { NumberedList } from "@/components/site/NumberedList";
+import { SiteImage } from "@/components/site/SiteImage";
 
 export const Route = createFileRoute("/portas")({
   head: () => ({
@@ -31,7 +32,7 @@ function Portas() {
       <p className="doors-intro">Quatro linhas em madeira maciça, sob medida ou em volume.</p>
     </section>
     {products.map(product => <section key={product.label} className="pad door-product">
-      <div className="duo door-photo"><img src={`/images/${product.image}`} alt={product.alt} /></div>
+      <div className="duo door-photo"><SiteImage src={`/images/${product.image}`} alt={product.alt} /></div>
       <div className="door-info">
         <div className="eyebrow">{product.label}</div>
         <h2 className="serif internal-heading">{product.title}</h2><p>{product.description}</p>
