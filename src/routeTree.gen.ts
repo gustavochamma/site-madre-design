@@ -10,33 +10,116 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AMadreRouteImport } from './routes/a-madre'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as PortasRouteImport } from './routes/portas'
+import { Route as ProjetosRouteImport } from './routes/projetos'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogPorQueAMadeiraMudaDeCorRouteImport } from './routes/blog.por-que-a-madeira-muda-de-cor'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AMadreRoute = AMadreRouteImport.update({
+  id: '/a-madre',
+  path: '/a-madre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortasRoute = PortasRouteImport.update({
+  id: '/portas',
+  path: '/portas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetosRoute = ProjetosRouteImport.update({
+  id: '/projetos',
+  path: '/projetos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogPorQueAMadeiraMudaDeCorRoute =
+  BlogPorQueAMadeiraMudaDeCorRouteImport.update({
+    id: '/blog/por-que-a-madeira-muda-de-cor',
+    path: '/blog/por-que-a-madeira-muda-de-cor',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-madre': typeof AMadreRoute
+  '/contato': typeof ContatoRoute
+  '/portas': typeof PortasRoute
+  '/projetos': typeof ProjetosRoute
+  '/blog/por-que-a-madeira-muda-de-cor': typeof BlogPorQueAMadeiraMudaDeCorRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-madre': typeof AMadreRoute
+  '/contato': typeof ContatoRoute
+  '/portas': typeof PortasRoute
+  '/projetos': typeof ProjetosRoute
+  '/blog/por-que-a-madeira-muda-de-cor': typeof BlogPorQueAMadeiraMudaDeCorRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-madre': typeof AMadreRoute
+  '/contato': typeof ContatoRoute
+  '/portas': typeof PortasRoute
+  '/projetos': typeof ProjetosRoute
+  '/blog/por-que-a-madeira-muda-de-cor': typeof BlogPorQueAMadeiraMudaDeCorRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-madre'
+    | '/contato'
+    | '/portas'
+    | '/projetos'
+    | '/blog/por-que-a-madeira-muda-de-cor'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-madre'
+    | '/contato'
+    | '/portas'
+    | '/projetos'
+    | '/blog/por-que-a-madeira-muda-de-cor'
+    | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-madre'
+    | '/contato'
+    | '/portas'
+    | '/projetos'
+    | '/blog/por-que-a-madeira-muda-de-cor'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AMadreRoute: typeof AMadreRoute
+  ContatoRoute: typeof ContatoRoute
+  PortasRoute: typeof PortasRoute
+  ProjetosRoute: typeof ProjetosRoute
+  BlogPorQueAMadeiraMudaDeCorRoute: typeof BlogPorQueAMadeiraMudaDeCorRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +131,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-madre': {
+      id: '/a-madre'
+      path: '/a-madre'
+      fullPath: '/a-madre'
+      preLoaderRoute: typeof AMadreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portas': {
+      id: '/portas'
+      path: '/portas'
+      fullPath: '/portas'
+      preLoaderRoute: typeof PortasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projetos': {
+      id: '/projetos'
+      path: '/projetos'
+      fullPath: '/projetos'
+      preLoaderRoute: typeof ProjetosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/por-que-a-madeira-muda-de-cor': {
+      id: '/blog/por-que-a-madeira-muda-de-cor'
+      path: '/blog/por-que-a-madeira-muda-de-cor'
+      fullPath: '/blog/por-que-a-madeira-muda-de-cor'
+      preLoaderRoute: typeof BlogPorQueAMadeiraMudaDeCorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AMadreRoute: AMadreRoute,
+  ContatoRoute: ContatoRoute,
+  PortasRoute: PortasRoute,
+  ProjetosRoute: ProjetosRoute,
+  BlogPorQueAMadeiraMudaDeCorRoute: BlogPorQueAMadeiraMudaDeCorRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
