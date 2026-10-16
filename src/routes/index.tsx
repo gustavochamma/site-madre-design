@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { ClientsStrip } from "@/components/site/ClientsStrip";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -107,15 +108,7 @@ function Index() {
         </div>
       </section>
 
-      <section style={{ padding: "56px 0", background: "#FFFFFF", borderTop: "1px solid #E6E6E6", borderBottom: "1px solid #E6E6E6", display: "flex", flexDirection: "column", alignItems: "center", gap: 36 }}>
-        <div style={eyebrow}>GRANDES OBRAS REALIZADAS</div>
-        <div className="faixa" style={{ width: "100%", overflow: "hidden" }}>
-          <div className="faixa-trilho" style={{ display: "flex", width: "max-content" }}>
-            <img src="/images/faixa-clientes.png" alt="Clientes corporativos: Vale, Teixeira Duarte, Progen, Ideflor-Bio, Eterc Engenharia, NOA Belém, O Mundo do Peteleco, Prefeitura de Ananindeua, Fundação Lymington, Trieng Engenharia e Paraferro" style={{ width: 1720, height: 52 }} />
-            <img src="/images/faixa-clientes.png" alt="" style={{ width: 1720, height: 52 }} />
-          </div>
-        </div>
-      </section>
+      <ClientsStrip />
 
       <section className="pad" style={{ paddingTop: 112, paddingBottom: 112, display: "flex", flexDirection: "column", gap: 48 }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
