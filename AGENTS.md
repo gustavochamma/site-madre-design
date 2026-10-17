@@ -13,3 +13,4 @@
 - Keep internal page tops, numbered lists, and the corporate clients strip in shared site components so repeated approved patterns stay consistent across pages.
 - Define new visual styling through semantic tokens in src/styles.css and use the existing .duo and .tile image interaction patterns to preserve the approved design.
 - Use SiteImage for new page photos so unavailable supplied assets retain their allocated image space without exposing broken-image text.
+- Keep blog entries in a shared data array and render listing and related posts with ArticleCards so both views remain consistent.
