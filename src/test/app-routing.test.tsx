@@ -19,4 +19,14 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("matches the blog listing", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/blog").at(-1)?.routeId).toBe("/blog/");
+  });
+
+  it("matches the wood-color article", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/blog/por-que-a-madeira-muda-de-cor").at(-1)?.routeId).toBe("/blog/por-que-a-madeira-muda-de-cor");
+  });
 });

@@ -14,7 +14,7 @@ export function Header({ variant = "light" }: { variant?: "light" | "hero" }) {
 
   return (
     <header
-      className="pad"
+      className="pad site-header"
       style={{
         paddingTop: 22, paddingBottom: 22, display: "flex", alignItems: "center",
         justifyContent: "space-between", gap: 24,
@@ -35,7 +35,7 @@ export function Header({ variant = "light" }: { variant?: "light" | "hero" }) {
           <Link key={label} to={to} style={linkStyle}>{label}</Link>
         ))}
       </nav>
-      <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+      <div className="site-header-actions" style={{ display: "flex", alignItems: "center", gap: 24 }}>
         <button
           type="button"
           className="menu-btn"
