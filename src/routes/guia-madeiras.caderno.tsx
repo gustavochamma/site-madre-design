@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { GuiaGate } from "@/components/guia/GuiaGate";
 import { Amostra, Escalas, usoLabel } from "@/components/guia/GuiaParts";
-import { ACABAMENTOS, AMBIENTES, CHECKLIST, ERROS, MADEIRAS, NOTA_DURABILIDADE, ORIGEM_LEGAL } from "@/lib/guia-madeiras";
+import { ACABAMENTOS, AMBIENTES, CHECKLIST, ERROS, MADEIRAS, ORIGEM_LEGAL } from "@/lib/guia-madeiras";
 import { seo } from "@/lib/seo";
 
 // Versão para impressão (A5) usada para gerar o caderno em PDF.
@@ -55,7 +55,7 @@ function Caderno() {
             <li><strong>Densidade:</strong> peso da madeira seca. Mais densa, mais pesada e, em geral, mais resistente.</li>
             <li><strong>Dureza:</strong> resistência a marcas e riscos, medida pelo ensaio Janka.</li>
             <li><strong>Estabilidade:</strong> quanto a peça se movimenta com a umidade. Mais alta, menos empena e abre frestas.</li>
-            <li><strong>Durabilidade natural:</strong> resistência a fungos e cupins. Cada ficha traz também a durabilidade em campo, em anos, medida com estacas enterradas no solo.</li>
+            <li><strong>Durabilidade:</strong> resistência natural a fungos e cupins.</li>
           </ul>
           <p className="cd-nota">Valores de referência da literatura técnica. Cor, veio e propriedades variam de lote para lote: peça sempre uma amostra física. As amostras de cor impressas são aproximadas.</p>
           <Rodape n={p++} />
@@ -76,7 +76,6 @@ function Caderno() {
             <div className="cd-dados">
               <div><span>DENSIDADE</span><b className="serif">{m.densidade}</b></div>
               <div><span>DUREZA JANKA</span><b className="serif">{m.dureza}</b></div>
-              <div><span>DURABILIDADE EM CAMPO</span><b className="serif">{m.durabilidadeCampo}</b></div>
             </div>
             <Escalas m={m} />
             <div className="cd-blocos">
@@ -96,12 +95,12 @@ function Caderno() {
           <div className="cd-eyebrow">COMPARATIVO</div>
           <h2 className="serif cd-h2">Lado a <i>lado</i></h2>
           <table className="cd-table">
-            <thead><tr><th>Madeira</th><th>Densidade</th><th>Dureza</th><th>Estab.</th><th>Em campo</th><th>Externa</th></tr></thead>
+            <thead><tr><th>Madeira</th><th>Densidade</th><th>Dureza</th><th>Estab.</th><th>Durab.</th><th>Externa</th></tr></thead>
             <tbody>{MADEIRAS.map(m => (
-              <tr key={m.slug}><th>{m.nome}</th><td>{m.densidade.replace("≈ ", "")}</td><td>{m.dureza.replace("≈ ", "")}</td><td>{nivel(m.notas.estabilidade)}</td><td>{m.durabilidadeCampo}</td><td>{m.usos.includes("externo") ? "Sim" : "Não"}</td></tr>
+              <tr key={m.slug}><th>{m.nome}</th><td>{m.densidade.replace("≈ ", "")}</td><td>{m.dureza.replace("≈ ", "")}</td><td>{nivel(m.notas.estabilidade)}</td><td>{nivel(m.notas.durabilidade)}</td><td>{m.usos.includes("externo") ? "Sim" : "Não"}</td></tr>
             ))}</tbody>
           </table>
-          <p className="cd-nota">Densidade em kg/m³ a 12% de umidade. Dureza Janka em newtons. {NOTA_DURABILIDADE}</p>
+          <p className="cd-nota">Densidade em kg/m³ a 12% de umidade. Dureza Janka em newtons.</p>
           <Rodape n={p++} />
         </section>
 

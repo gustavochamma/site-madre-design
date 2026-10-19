@@ -22,7 +22,6 @@ export type Madeira = {
   resumo: string;
   densidade: string;
   dureza: string;
-  durabilidadeCampo: string; // ensaio de campo com estacas enterradas no solo
   notas: { densidade: number; dureza: number; estabilidade: number; durabilidade: number }; // 1 a 5
   usos: Uso[];
   aparencia: string;
@@ -43,8 +42,7 @@ export const MADEIRAS: Madeira[] = [
     resumo: "Madeira clara e neutra para interiores secos. Amplia o ambiente e aceita pintura e laca.",
     densidade: "≈ 620 kg/m³",
     dureza: "≈ 5.800 N",
-    durabilidadeCampo: "≈ 2 anos",
-    notas: { densidade: 2, dureza: 2, estabilidade: 3, durabilidade: 1 },
+    notas: { densidade: 2, dureza: 2, estabilidade: 3, durabilidade: 4 },
     usos: ["interno", "moveis"],
     aparencia: "Tom bege-amarelado uniforme, quase sem diferença entre cerne e alburno. Textura fina, veios discretos e grã reta. Fica elegante mesmo sem verniz.",
     tempo: "Escurece pouco, para um mel claro. Perde o brilho e pode manchar se ficar ao sol direto.",
@@ -62,7 +60,6 @@ export const MADEIRAS: Madeira[] = [
     resumo: "Muito pesada e muito durável. Para estrutura aparente, decks e peças robustas.",
     densidade: "≈ 970 kg/m³",
     dureza: "≈ 14.600 N",
-    durabilidadeCampo: "mais de 10 anos",
     notas: { densidade: 5, dureza: 5, estabilidade: 3, durabilidade: 5 },
     usos: ["externo", "estrutura", "piso"],
     aparencia: "Cerne marrom-avermelhado claro, com grã entrecruzada e textura média a grossa. Visual relativamente uniforme e de aspecto robusto.",
@@ -78,18 +75,17 @@ export const MADEIRAS: Madeira[] = [
     cientifico: "Hymenolobium spp.",
     tom: "#B07B48",
     corDescricao: "Castanho-amarelado com manchas",
-    resumo: "Versátil e com bom custo-benefício. Visual rústico e tropical. Durabilidade moderada em contato com o solo.",
+    resumo: "Durável e versátil, com bom custo-benefício. Visual rústico e tropical.",
     densidade: "≈ 710 kg/m³",
     dureza: "≈ 7.600 N",
-    durabilidadeCampo: "4 a 5 anos",
-    notas: { densidade: 3, dureza: 3, estabilidade: 4, durabilidade: 3 },
+    notas: { densidade: 3, dureza: 3, estabilidade: 4, durabilidade: 4 },
     usos: ["externo", "interno", "piso", "estrutura"],
     aparencia: "Cerne castanho-amarelado a castanho-avermelhado, com manchas escuras irregulares. Textura grossa e fibrosa, sem brilho. Nós e manchas fazem parte do visual.",
     tempo: "Escurece para um castanho mais uniforme. Na área externa sem acabamento, ganha pátina acinzentada.",
-    ondeUsar: ["Portas de entrada, janelas e venezianas", "Forros, inclusive de varandas", "Decks e varandas acima do solo, com acabamento e manutenção", "Pisos internos de estilo rústico"],
+    ondeUsar: ["Portas de entrada, janelas e venezianas", "Forros, inclusive de varandas", "Decks de grandes áreas com orçamento moderado", "Pisos internos de estilo rústico"],
     ondeEvitar: ["Projetos que pedem superfície lisa e uniforme"],
     acabamento: "Stain mel na área externa. Seladora e verniz acetinado no interior, porque os poros abertos absorvem muito acabamento.",
-    naEspecificacao: ["Peça seladora antes do acabamento final.", "Na área externa, mantenha a peça afastada do solo e da água parada.", "Avise o cliente que nós e manchas são característicos."],
+    naEspecificacao: ["Peça seladora antes do acabamento final.", "Avise o cliente que nós e manchas são característicos."],
   },
   {
     slug: "tatajuba",
@@ -100,7 +96,6 @@ export const MADEIRAS: Madeira[] = [
     resumo: "Estável e muito durável. Começa amarela e escurece em poucos meses.",
     densidade: "≈ 820 kg/m³",
     dureza: "≈ 9.000 N",
-    durabilidadeCampo: "mais de 7 anos",
     notas: { densidade: 4, dureza: 4, estabilidade: 4, durabilidade: 5 },
     usos: ["externo", "piso", "estrutura", "interno"],
     aparencia: "Cerne amarelo-dourado vivo quando recém-cortado, com grã reta, textura média e brilho alto depois de polida.",
@@ -120,7 +115,6 @@ export const MADEIRAS: Madeira[] = [
     resumo: "A mais ornamental do guia. Rajada, dura e estável, para peças de destaque.",
     densidade: "≈ 900 kg/m³",
     dureza: "≈ 10.500 N",
-    durabilidadeCampo: "Sem ensaio",
     notas: { densidade: 4, dureza: 4, estabilidade: 4, durabilidade: 4 },
     usos: ["piso", "moveis", "interno", "externo"],
     aparencia: "Fundo castanho-claro a avermelhado com faixas irregulares quase pretas, um rajado que lembra pelagem de tigre. Cada tábua é única.",
@@ -139,7 +133,6 @@ export const MADEIRAS: Madeira[] = [
     resumo: "Uma das mais duras e duráveis. Referência para deck, piscina e piso de alto tráfego.",
     densidade: "≈ 1.080 kg/m³",
     dureza: "≈ 14.000 N",
-    durabilidadeCampo: "mais de 10 anos",
     notas: { densidade: 5, dureza: 5, estabilidade: 4, durabilidade: 5 },
     usos: ["externo", "piso", "umido", "estrutura"],
     aparencia: "Cerne castanho-claro amarelado a marrom-escuro, com reflexos dourados ou avermelhados e listras escuras difusas. Poros finos e aspecto uniforme.",
@@ -158,7 +151,6 @@ export const MADEIRAS: Madeira[] = [
     resumo: "A mais estável e uma das mais duráveis. Visual sóbrio, para máximo desempenho.",
     densidade: "≈ 1.050 kg/m³",
     dureza: "≈ 16.400 N",
-    durabilidadeCampo: "20 anos ou mais",
     notas: { densidade: 5, dureza: 5, estabilidade: 5, durabilidade: 5 },
     usos: ["externo", "piso", "umido", "estrutura", "moveis"],
     aparencia: "Cerne marrom-escuro homogêneo, às vezes com leve tom oliva ou avermelhado. Veios sutis e textura fina, que combinam com quase tudo.",
@@ -177,7 +169,6 @@ export const MADEIRAS: Madeira[] = [
     resumo: "Equilíbrio entre resistência e trabalhabilidade. Nobre e discreta para marcenaria fina.",
     densidade: "≈ 850 kg/m³",
     dureza: "≈ 9.800 N",
-    durabilidadeCampo: "Sem ensaio",
     notas: { densidade: 4, dureza: 4, estabilidade: 3, durabilidade: 4 },
     usos: ["moveis", "interno"],
     aparencia: "Marrom médio, de avermelhado a oliva, às vezes com rajas mais escuras. Textura fina, alto lustro natural e aroma agradável.",
@@ -196,7 +187,6 @@ export const MADEIRAS: Madeira[] = [
     resumo: "Da família do mogno. Leve, estável e fácil de trabalhar, para marcenaria de interiores.",
     densidade: "≈ 630 kg/m³",
     dureza: "≈ 4.500 N",
-    durabilidadeCampo: "Sem ensaio",
     notas: { densidade: 2, dureza: 2, estabilidade: 4, durabilidade: 3 },
     usos: ["moveis", "interno"],
     aparencia: "Rosa-pálido a marrom-avermelhado, lembrando um mogno claro. Grã reta, textura média e pouco brilho.",
@@ -215,7 +205,6 @@ export const MADEIRAS: Madeira[] = [
     resumo: "Dura e de cor marcante. Clássica em pisos, tampos e escadas, com atenção à estabilidade.",
     densidade: "≈ 950 kg/m³",
     dureza: "≈ 11.000 N",
-    durabilidadeCampo: "≈ 7 anos",
     notas: { densidade: 4, dureza: 4, estabilidade: 2, durabilidade: 4 },
     usos: ["piso", "moveis", "estrutura", "externo"],
     aparencia: "Cerne vermelho-alaranjado intenso quando novo, com listras escuras ocasionais e brilho alto depois de polido.",
@@ -250,7 +239,7 @@ export const AMBIENTES = [
   },
   {
     titulo: "Áreas externas",
-    texto: "Ipê e cumaru lideram em decks, fachadas e brises. Tatajuba entrega alta durabilidade com custo menor. Jatobá e angelim-pedra funcionam acima do solo, com manutenção mais frequente.",
+    texto: "Ipê e cumaru lideram em decks, fachadas e brises. Tatajuba e angelim-pedra entregam alta durabilidade com custo menor. Jatobá funciona com manutenção mais frequente.",
     dicas: ["Parafusos de aço inox.", "Cerca de 5 mm entre réguas de deck para escoar a água.", "Stain em vez de verniz: o stain desbota, o verniz descasca.", "Ventilação atrás de fachadas e brises."],
   },
 ];
@@ -314,9 +303,8 @@ export const ESCALAS: { chave: keyof Madeira["notas"]; label: string }[] = [
   { chave: "densidade", label: "Densidade" },
   { chave: "dureza", label: "Dureza" },
   { chave: "estabilidade", label: "Estabilidade" },
-  { chave: "durabilidade", label: "Durabilidade natural" },
+  { chave: "durabilidade", label: "Durabilidade" },
 ];
 
 export const GUIA_PDF = "/guia-madeiras/caderno-madre-guia-de-madeiras.pdf";
 
-export const NOTA_DURABILIDADE = "Durabilidade em campo: tempo que estacas de cerne, enterradas no solo úmido da floresta amazônica, resistiram a fungos e cupins em ensaios da Embrapa e do INPA. É a condição mais severa possível. Acima do solo, com acabamento e manutenção, a vida útil é bem maior.";
