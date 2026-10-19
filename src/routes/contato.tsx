@@ -40,7 +40,7 @@ function ContactPage() {
           <Button variant="siteText" type="submit" className="contact-submit">ENVIAR PEDIDO</Button>
         </form>
         <div className="contact-details">
-          <div><div className="eyebrow">FALE DIRETO</div><div className="serif contact-direct">[WHATSAPP]</div><div className="serif contact-direct">[E-MAIL]</div></div>
+          <div><div className="eyebrow">FALE DIRETO</div><a className="serif contact-direct" href="https://wa.me/5591920046503" target="_blank" rel="noopener noreferrer">+55 91 92004-6503</a><a className="serif contact-direct" href="mailto:contato@grupomadre.com.br">contato@grupomadre.com.br</a></div>
           <div><div className="eyebrow">FÁBRICA</div><p>Rua Cinco, Lote 03, Galpão B, Setor C, Quadra 7, Distrito Industrial, Ananindeua/PA, CEP 67035-330</p></div>
           <div><div className="eyebrow">ATENDIMENTO</div><p>[DIAS E HORÁRIOS]</p></div>
         </div>

@@ -22,7 +22,8 @@ export function Footer() {
               Vamos falar do <i style={{ color: "#E08A72" }}>seu projeto</i>
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 18, color: "#C8C8C8" }}>
-              <span>[E-MAIL]</span><span>[WHATSAPP]</span>
+              <a className="footer-contact" href="mailto:contato@grupomadre.com.br">contato@grupomadre.com.br</a>
+              <a className="footer-contact" href="https://wa.me/5591920046503" target="_blank" rel="noopener noreferrer">+55 91 92004-6503</a>
             </div>
             <Link className="btn light" to="/contato">PEDIR ORÇAMENTO</Link>
           </div>
@@ -38,8 +39,8 @@ export function Footer() {
             </div>
             <div style={col}>
               <Label>SEGUIR</Label>
-              <a href="https://www.instagram.com/designmadre" style={item}>Instagram</a>
-              <span style={{ ...item, color: "#C8C8C8" }}>[OUTRAS REDES]</span>
+              <a href="https://www.instagram.com/designmadre" target="_blank" rel="noopener noreferrer" style={item}>Instagram</a>
+              <a href="https://www.facebook.com/designmadre" target="_blank" rel="noopener noreferrer" style={item}>Facebook</a>
             </div>
             <div style={col}>
               <Label>FÁBRICA</Label>
