@@ -11,11 +11,15 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AMadreRouteImport } from './routes/a-madre'
+import { Route as ArquitetosRouteImport } from './routes/arquitetos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as PortasRouteImport } from './routes/portas'
 import { Route as ProjetosRouteImport } from './routes/projetos'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogPorQueAMadeiraMudaDeCorRouteImport } from './routes/blog.por-que-a-madeira-muda-de-cor'
+import { Route as GuiaMadeirasIndexRouteImport } from './routes/guia-madeiras.index'
+import { Route as GuiaMadeirasSlugRouteImport } from './routes/guia-madeiras.$slug'
+import { Route as GuiaMadeirasCadernoRouteImport } from './routes/guia-madeiras.caderno'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -25,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const AMadreRoute = AMadreRouteImport.update({
   id: '/a-madre',
   path: '/a-madre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArquitetosRoute = ArquitetosRouteImport.update({
+  id: '/arquitetos',
+  path: '/arquitetos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -53,73 +62,116 @@ const BlogPorQueAMadeiraMudaDeCorRoute =
     path: '/blog/por-que-a-madeira-muda-de-cor',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GuiaMadeirasIndexRoute = GuiaMadeirasIndexRouteImport.update({
+  id: '/guia-madeiras/',
+  path: '/guia-madeiras/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiaMadeirasSlugRoute = GuiaMadeirasSlugRouteImport.update({
+  id: '/guia-madeiras/$slug',
+  path: '/guia-madeiras/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiaMadeirasCadernoRoute = GuiaMadeirasCadernoRouteImport.update({
+  id: '/guia-madeiras/caderno',
+  path: '/guia-madeiras/caderno',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-madre': typeof AMadreRoute
+  '/arquitetos': typeof ArquitetosRoute
   '/contato': typeof ContatoRoute
   '/portas': typeof PortasRoute
   '/projetos': typeof ProjetosRoute
   '/blog/por-que-a-madeira-muda-de-cor': typeof BlogPorQueAMadeiraMudaDeCorRoute
+  '/guia-madeiras/$slug': typeof GuiaMadeirasSlugRoute
+  '/guia-madeiras/caderno': typeof GuiaMadeirasCadernoRoute
   '/blog/': typeof BlogIndexRoute
+  '/guia-madeiras/': typeof GuiaMadeirasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-madre': typeof AMadreRoute
+  '/arquitetos': typeof ArquitetosRoute
   '/contato': typeof ContatoRoute
   '/portas': typeof PortasRoute
   '/projetos': typeof ProjetosRoute
   '/blog/por-que-a-madeira-muda-de-cor': typeof BlogPorQueAMadeiraMudaDeCorRoute
+  '/guia-madeiras/$slug': typeof GuiaMadeirasSlugRoute
+  '/guia-madeiras/caderno': typeof GuiaMadeirasCadernoRoute
   '/blog': typeof BlogIndexRoute
+  '/guia-madeiras': typeof GuiaMadeirasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-madre': typeof AMadreRoute
+  '/arquitetos': typeof ArquitetosRoute
   '/contato': typeof ContatoRoute
   '/portas': typeof PortasRoute
   '/projetos': typeof ProjetosRoute
   '/blog/por-que-a-madeira-muda-de-cor': typeof BlogPorQueAMadeiraMudaDeCorRoute
+  '/guia-madeiras/$slug': typeof GuiaMadeirasSlugRoute
+  '/guia-madeiras/caderno': typeof GuiaMadeirasCadernoRoute
   '/blog/': typeof BlogIndexRoute
+  '/guia-madeiras/': typeof GuiaMadeirasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/a-madre'
+    | '/arquitetos'
     | '/contato'
     | '/portas'
     | '/projetos'
     | '/blog/por-que-a-madeira-muda-de-cor'
+    | '/guia-madeiras/$slug'
+    | '/guia-madeiras/caderno'
     | '/blog/'
+    | '/guia-madeiras/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/a-madre'
+    | '/arquitetos'
     | '/contato'
     | '/portas'
     | '/projetos'
     | '/blog/por-que-a-madeira-muda-de-cor'
+    | '/guia-madeiras/$slug'
+    | '/guia-madeiras/caderno'
     | '/blog'
+    | '/guia-madeiras'
   id:
     | '__root__'
     | '/'
     | '/a-madre'
+    | '/arquitetos'
     | '/contato'
     | '/portas'
     | '/projetos'
     | '/blog/por-que-a-madeira-muda-de-cor'
+    | '/guia-madeiras/$slug'
+    | '/guia-madeiras/caderno'
     | '/blog/'
+    | '/guia-madeiras/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AMadreRoute: typeof AMadreRoute
+  ArquitetosRoute: typeof ArquitetosRoute
   ContatoRoute: typeof ContatoRoute
   PortasRoute: typeof PortasRoute
   ProjetosRoute: typeof ProjetosRoute
   BlogPorQueAMadeiraMudaDeCorRoute: typeof BlogPorQueAMadeiraMudaDeCorRoute
+  GuiaMadeirasSlugRoute: typeof GuiaMadeirasSlugRoute
+  GuiaMadeirasCadernoRoute: typeof GuiaMadeirasCadernoRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  GuiaMadeirasIndexRoute: typeof GuiaMadeirasIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -136,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/a-madre'
       fullPath: '/a-madre'
       preLoaderRoute: typeof AMadreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/arquitetos': {
+      id: '/arquitetos'
+      path: '/arquitetos'
+      fullPath: '/arquitetos'
+      preLoaderRoute: typeof ArquitetosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -173,17 +232,42 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogPorQueAMadeiraMudaDeCorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guia-madeiras/': {
+      id: '/guia-madeiras/'
+      path: '/guia-madeiras'
+      fullPath: '/guia-madeiras/'
+      preLoaderRoute: typeof GuiaMadeirasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guia-madeiras/$slug': {
+      id: '/guia-madeiras/$slug'
+      path: '/guia-madeiras/$slug'
+      fullPath: '/guia-madeiras/$slug'
+      preLoaderRoute: typeof GuiaMadeirasSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guia-madeiras/caderno': {
+      id: '/guia-madeiras/caderno'
+      path: '/guia-madeiras/caderno'
+      fullPath: '/guia-madeiras/caderno'
+      preLoaderRoute: typeof GuiaMadeirasCadernoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AMadreRoute: AMadreRoute,
+  ArquitetosRoute: ArquitetosRoute,
   ContatoRoute: ContatoRoute,
   PortasRoute: PortasRoute,
   ProjetosRoute: ProjetosRoute,
   BlogPorQueAMadeiraMudaDeCorRoute: BlogPorQueAMadeiraMudaDeCorRoute,
+  GuiaMadeirasSlugRoute: GuiaMadeirasSlugRoute,
+  GuiaMadeirasCadernoRoute: GuiaMadeirasCadernoRoute,
   BlogIndexRoute: BlogIndexRoute,
+  GuiaMadeirasIndexRoute: GuiaMadeirasIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
