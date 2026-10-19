@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Disallow: /blog/por-que-a-madeira-muda-de-cor
+Disallow: /guia-madeiras
+
+User-agent: GPTBot
+Allow: /
+Disallow: /guia-madeiras
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /guia-madeiras
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /guia-madeiras
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /guia-madeiras
+
+Sitemap: https://madredesign.com.br/sitemap.xml
