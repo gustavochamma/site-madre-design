@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { businessJsonLd } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -78,8 +79,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MADRE" },
-      { name: "description", content: "Móveis e portas sob medida em madeira maciça da Amazônia." },
+      { title: "MADRE | Portas e mesas de madeira maciça em Belém" },
+      { name: "description", content: "Fábrica de portas e mesas sob medida em madeira maciça da Amazônia, em Ananindeua (PA)." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -90,6 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(businessJsonLd) }],
   }),
   shellComponent: RootShell,
   component: RootComponent,

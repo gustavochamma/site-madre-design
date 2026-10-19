@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { InternalPageTop } from "@/components/site/InternalPageTop";
@@ -7,15 +8,11 @@ import { ClientsStrip } from "@/components/site/ClientsStrip";
 import { SiteImage } from "@/components/site/SiteImage";
 
 export const Route = createFileRoute("/a-madre")({
-  head: () => ({
-    meta: [
-      { title: "A MADRE | MADRE" },
-      { name: "description", content: "Conheça a MADRE, fábrica de móveis em madeira maciça em Ananindeua/PA." },
-      { property: "og:title", content: "A MADRE | MADRE" },
-      { property: "og:description", content: "Conheça a MADRE, fábrica de móveis em madeira maciça em Ananindeua/PA." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+  head: () => seo({
+    path: "/a-madre",
+    title: "A MADRE: fábrica de madeira maciça em Ananindeua | MADRE",
+    description: "Fábrica com mais de 4 mil m² em Ananindeua, madeira certificada FSC e Legal Source, seca em estufa. Conheça a MADRE.",
+    breadcrumb: "A MADRE",
   }),
   component: AMadre,
 });

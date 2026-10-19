@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { InternalPageTop } from "@/components/site/InternalPageTop";
@@ -7,15 +8,11 @@ import { ArticleCards } from "@/components/site/ArticleCards";
 import { blogArticles } from "@/lib/blog-articles";
 
 export const Route = createFileRoute("/blog/")({
-  head: () => ({
-    meta: [
-      { title: "Blog | MADRE" },
-      { name: "description", content: "Artigos da MADRE sobre madeira maciça e marcenaria." },
-      { property: "og:title", content: "Blog | MADRE" },
-      { property: "og:description", content: "Artigos da MADRE sobre madeira maciça e marcenaria." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+  head: () => seo({
+    path: "/blog",
+    title: "Blog MADRE: cuidados e escolhas em madeira maciça",
+    description: "Dicas sobre madeira maciça, conservação de portas e mesas e escolhas para o seu projeto.",
+    breadcrumb: "Blog",
   }),
   component: BlogPage,
 });

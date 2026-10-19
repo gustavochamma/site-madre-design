@@ -7,9 +7,7 @@ const navTxt = { fontSize: 13, letterSpacing: 2 };
 export function Header({ variant = "light" }: { variant?: "light" | "hero" }) {
   const [open, setOpen] = useState(false);
   const hero = variant === "hero";
-  const links: [string, string][] = hero
-    ? [["/portas", "PORTAS"], ["/projetos", "MÓVEIS"], ["/projetos", "PROJETOS"], ["/a-madre", "A MADRE"], ["/blog", "BLOG"]]
-    : [["/portas", "PORTAS"], ["/projetos", "PROJETOS"], ["/a-madre", "A MADRE"], ["/blog", "BLOG"]];
+  const links: [string, string][] = [["/portas", "PORTAS"], ["/projetos", "PROJETOS"], ["/a-madre", "A MADRE"], ["/blog", "BLOG"]];
   const line = hero ? "#F9F9F9" : "#1C1C1C";
 
   return (

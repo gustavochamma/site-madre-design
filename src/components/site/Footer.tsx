@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
+import { ContactIcon } from "./ContactIcon";
 
 const col = { flex: "1 1 130px", display: "flex", flexDirection: "column" as const, gap: 2, fontSize: 15 };
 const item = { padding: "8px 0" };
+const iconLink = { display: "inline-flex", alignItems: "center", gap: 10 };
 
 function Label({ children }: { children: string }) {
   return (
@@ -22,8 +24,8 @@ export function Footer() {
               Vamos falar do <i style={{ color: "#E08A72" }}>seu projeto</i>
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 18, color: "#C8C8C8" }}>
-              <a className="footer-contact" href="mailto:contato@grupomadre.com.br">contato@grupomadre.com.br</a>
-              <a className="footer-contact" href="https://wa.me/5591920046503" target="_blank" rel="noopener noreferrer">+55 91 92004-6503</a>
+              <a className="footer-contact" href="mailto:contato@grupomadre.com.br" style={iconLink}><ContactIcon type="mail" size={17} />contato@grupomadre.com.br</a>
+              <a className="footer-contact" href="https://wa.me/5591920046503" target="_blank" rel="noopener noreferrer" style={iconLink}><ContactIcon type="phone" size={17} />+55 91 92004-6503</a>
             </div>
             <Link className="btn light" to="/contato">PEDIR ORÇAMENTO</Link>
           </div>

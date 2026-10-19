@@ -1,19 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { NumberedList } from "@/components/site/NumberedList";
 import { SiteImage } from "@/components/site/SiteImage";
 
 export const Route = createFileRoute("/portas")({
-  head: () => ({
-    meta: [
-      { title: "Portas | MADRE" },
-      { name: "description", content: "Portas sob medida em madeira maciça da Amazônia." },
-      { property: "og:title", content: "Portas | MADRE" },
-      { property: "og:description", content: "Portas sob medida em madeira maciça da Amazônia." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+  head: () => seo({
+    path: "/portas",
+    title: "Portas de madeira maciça sob medida em Belém | MADRE",
+    description: "Portas laqueadas, de giro em taquari vermelho, projetos especiais e Linha Essencial. Madeira certificada e seca em estufa, fabricada em Ananindeua (PA).",
+    breadcrumb: "Portas",
   }),
   component: Portas,
 });

@@ -1,18 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { ClientsStrip } from "@/components/site/ClientsStrip";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "MADRE | Móveis e portas sob medida em madeira maciça da Amazônia" },
-      { name: "description", content: "Móveis e portas sob medida em madeira maciça da Amazônia. Fábrica em Ananindeua/PA." },
-      { property: "og:title", content: "MADRE | Feito para a vida toda" },
-      { property: "og:description", content: "Móveis e portas sob medida em madeira maciça da Amazônia." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+  head: () => seo({
+    path: "/",
+    title: "Portas e mesas de madeira maciça em Belém | MADRE",
+    description: "Fábrica de portas e mesas sob medida em madeira maciça da Amazônia, em Ananindeua. Atendemos Belém, Ananindeua, Castanhal e Salinópolis.",
   }),
   component: Index,
 });

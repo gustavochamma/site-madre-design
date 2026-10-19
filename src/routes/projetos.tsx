@@ -1,19 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { InternalPageTop } from "@/components/site/InternalPageTop";
 import { SiteImage } from "@/components/site/SiteImage";
 
 export const Route = createFileRoute("/projetos")({
-  head: () => ({
-    meta: [
-      { title: "Projetos | MADRE" },
-      { name: "description", content: "Projetos de móveis e portas sob medida em madeira maciça." },
-      { property: "og:title", content: "Projetos | MADRE" },
-      { property: "og:description", content: "Projetos de móveis e portas sob medida em madeira maciça." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+  head: () => seo({
+    path: "/projetos",
+    title: "Mesas, decks e projetos em madeira maciça | MADRE",
+    description: "Mesas de jantar de borda orgânica, mesas de centro, decks, escadas e mobiliário urbano em madeira maciça, feitos sob medida no Pará.",
+    breadcrumb: "Projetos",
   }),
   component: Projetos,
 });
