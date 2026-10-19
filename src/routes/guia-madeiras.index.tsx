@@ -4,7 +4,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { GuiaGate } from "@/components/guia/GuiaGate";
 import { Amostra, GuiaSubnav, MadeiraCard } from "@/components/guia/GuiaParts";
-import { ACABAMENTOS, AMBIENTES, CHECKLIST, ERROS, GUIA_PDF, MADEIRAS, ORIGEM_LEGAL, USOS, type Uso } from "@/lib/guia-madeiras";
+import { ACABAMENTOS, AMBIENTES, CHECKLIST, ERROS, GUIA_PDF, MADEIRAS, NOTA_DURABILIDADE, ORIGEM_LEGAL, USOS, type Uso } from "@/lib/guia-madeiras";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/guia-madeiras/")({
@@ -59,17 +59,17 @@ function GuiaIndex() {
           </div>
           <div className="g-table-wrap">
             <table className="g-table">
-              <thead><tr><th scope="col">Madeira</th><th scope="col">Densidade</th><th scope="col">Dureza Janka</th><th scope="col">Estabilidade</th><th scope="col">Durabilidade</th><th scope="col">Área externa</th></tr></thead>
+              <thead><tr><th scope="col">Madeira</th><th scope="col">Densidade</th><th scope="col">Dureza Janka</th><th scope="col">Estabilidade</th><th scope="col">Durabilidade em campo</th><th scope="col">Área externa</th></tr></thead>
               <tbody>{MADEIRAS.map(m => (
                 <tr key={m.slug}>
                   <th scope="row"><Link to="/guia-madeiras/$slug" params={{ slug: m.slug }} className="g-table-name"><Amostra m={m} size="mini" />{m.nome}</Link></th>
-                  <td>{m.densidade}</td><td>{m.dureza}</td><td>{nivel(m.notas.estabilidade)}</td><td>{nivel(m.notas.durabilidade)}</td>
+                  <td>{m.densidade}</td><td>{m.dureza}</td><td>{nivel(m.notas.estabilidade)}</td><td>{m.durabilidadeCampo}</td>
                   <td>{m.usos.includes("externo") ? "Sim" : "Não"}</td>
                 </tr>
               ))}</tbody>
             </table>
           </div>
-          <p className="g-nota">Densidade a 12% de umidade. Valores de referência da literatura técnica.</p>
+          <p className="g-nota">Densidade a 12% de umidade. Valores de referência da literatura técnica. {NOTA_DURABILIDADE}</p>
         </section>
 
         <section id="ambientes" className="pad g-section">

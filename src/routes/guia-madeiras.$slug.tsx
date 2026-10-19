@@ -3,7 +3,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { GuiaGate } from "@/components/guia/GuiaGate";
 import { Amostra, Escalas, GuiaSubnav, usoLabel } from "@/components/guia/GuiaParts";
-import { GUIA_PDF, MADEIRAS } from "@/lib/guia-madeiras";
+import { GUIA_PDF, MADEIRAS, NOTA_DURABILIDADE } from "@/lib/guia-madeiras";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/guia-madeiras/$slug")({
@@ -54,6 +54,7 @@ function FichaMadeira() {
           <section className="pad g-ficha-dados">
             <div className="g-dado"><div className="eyebrow">DENSIDADE</div><div className="serif g-dado-num">{m.densidade}</div><div className="g-dado-sub">a 12% de umidade</div></div>
             <div className="g-dado"><div className="eyebrow">DUREZA JANKA</div><div className="serif g-dado-num">{m.dureza}</div><div className="g-dado-sub">valor de referência</div></div>
+            <div className="g-dado"><div className="eyebrow">DURABILIDADE EM CAMPO</div><div className="serif g-dado-num">{m.durabilidadeCampo}</div><div className="g-dado-sub">{m.durabilidadeCampo === "Sem ensaio" ? "sem ensaio de campo publicado" : "estacas enterradas no solo"}</div></div>
             <div className="g-dado g-dado-escalas"><Escalas m={m} /></div>
           </section>
 
@@ -66,6 +67,7 @@ function FichaMadeira() {
             <div className="g-row g-row-destaque"><h2 className="serif">Na sua especificação</h2><ul className="g-dicas">{m.naEspecificacao.map(x => <li key={x}>{x}</li>)}</ul></div>
           </section>
 
+          <p className="pad g-nota g-ficha-nota">{NOTA_DURABILIDADE}</p>
           <nav className="pad g-ficha-nav" aria-label="Outras madeiras">
             <Link to="/guia-madeiras/$slug" params={{ slug: anterior.slug }}><span className="eyebrow">ANTERIOR</span><span className="serif">{anterior.nome}</span></Link>
             <Link to="/guia-madeiras/$slug" params={{ slug: proxima.slug }} className="g-next"><span className="eyebrow">PRÓXIMA</span><span className="serif">{proxima.nome}</span></Link>
