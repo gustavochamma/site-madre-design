@@ -18,13 +18,19 @@ if ! command -v node >/dev/null 2>&1 || [ "$(node -v | cut -d. -f1 | tr -d v)" -
 fi
 apt-get install -y git nginx certbot python3-certbot-nginx
 command -v pm2 >/dev/null 2>&1 || npm install -g pm2
+apt-get install -y unzip
+if ! command -v bun >/dev/null 2>&1 && [ ! -x "$HOME/.bun/bin/bun" ]; then
+  curl -fsSL https://bun.sh/install | bash
+fi
+export PATH="$HOME/.bun/bin:$PATH"
 
 echo "==> 2/5 Codigo mais recente"
 git pull --ff-only || true
 
 echo "==> 3/5 Montando o site"
-npm install
-NITRO_PRESET=node-server npm run build
+rm -rf node_modules
+bun install
+NITRO_PRESET=node-server bun run build
 
 echo "==> 4/5 Iniciando o site"
 if pm2 describe madre >/dev/null 2>&1; then
