@@ -453,3 +453,19 @@ a.btn.light:hover { color: #e08a72; border-bottom-color: #e08a72; }
 .cd-check li { counter-increment: c; display: flex; gap: 3mm; padding: 1.3mm 0; border-top: 0.25mm solid var(--color-borda); color: var(--color-corrido); }
 .cd-check li::before { content: counter(c, decimal-leading-zero); font-family: "Instrument Serif", serif; color: var(--color-cobre-escuro); min-width: 5mm; }
 .cd-erros { display: flex; flex-direction: column; gap: 1.2mm; color: var(--color-corrido); font-size: 7.9pt; }
+
+/* Landing /lp-portas */
+.lp-nums-band { padding-top: 64px; padding-bottom: 64px; border-bottom: 1px solid var(--color-borda-clara); }
+.lp-gap { margin-top: 16px; margin-bottom: 40px; }
+.lp-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+.lp-tags span { border: 1px solid var(--color-preto); border-radius: 0; padding: 10px 16px; font-size: 12px; letter-spacing: 2.5px; }
+.lp-faq { flex: 2 1 480px; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.lp-faq details { width: 100%; border-top: 1px solid var(--color-borda); padding: 22px 0; }
+.lp-faq details:first-child { border-top-color: var(--color-preto); }
+.lp-faq summary { font-size: 24px; line-height: 1.2; cursor: pointer; list-style: none; }
+.lp-faq summary::-webkit-details-marker { display: none; }
+.lp-faq details p { color: var(--color-corrido); margin-top: 10px; }
+.lp-faq .btn { margin-top: 24px; }
+.lp-final p { color: #e6e6e6; }
+.lp-footer .pad { padding-top: 40px; padding-bottom: 40px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--color-terciario); }
+.lp-footer .pad span:first-child { color: #f9f9f9; letter-spacing: 2px; }
