@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AMadreRouteImport } from './routes/a-madre'
 import { Route as ArquitetosRouteImport } from './routes/arquitetos'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as LpPortasRouteImport } from './routes/lp-portas'
 import { Route as PortasRouteImport } from './routes/portas'
 import { Route as ProjetosRouteImport } from './routes/projetos'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -39,6 +40,11 @@ const ArquitetosRoute = ArquitetosRouteImport.update({
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpPortasRoute = LpPortasRouteImport.update({
+  id: '/lp-portas',
+  path: '/lp-portas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortasRoute = PortasRouteImport.update({
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/a-madre': typeof AMadreRoute
   '/arquitetos': typeof ArquitetosRoute
   '/contato': typeof ContatoRoute
+  '/lp-portas': typeof LpPortasRoute
   '/portas': typeof PortasRoute
   '/projetos': typeof ProjetosRoute
   '/blog/por-que-a-madeira-muda-de-cor': typeof BlogPorQueAMadeiraMudaDeCorRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/a-madre': typeof AMadreRoute
   '/arquitetos': typeof ArquitetosRoute
   '/contato': typeof ContatoRoute
+  '/lp-portas': typeof LpPortasRoute
   '/portas': typeof PortasRoute
   '/projetos': typeof ProjetosRoute
   '/blog/por-que-a-madeira-muda-de-cor': typeof BlogPorQueAMadeiraMudaDeCorRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/a-madre': typeof AMadreRoute
   '/arquitetos': typeof ArquitetosRoute
   '/contato': typeof ContatoRoute
+  '/lp-portas': typeof LpPortasRoute
   '/portas': typeof PortasRoute
   '/projetos': typeof ProjetosRoute
   '/blog/por-que-a-madeira-muda-de-cor': typeof BlogPorQueAMadeiraMudaDeCorRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/a-madre'
     | '/arquitetos'
     | '/contato'
+    | '/lp-portas'
     | '/portas'
     | '/projetos'
     | '/blog/por-que-a-madeira-muda-de-cor'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/a-madre'
     | '/arquitetos'
     | '/contato'
+    | '/lp-portas'
     | '/portas'
     | '/projetos'
     | '/blog/por-que-a-madeira-muda-de-cor'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/a-madre'
     | '/arquitetos'
     | '/contato'
+    | '/lp-portas'
     | '/portas'
     | '/projetos'
     | '/blog/por-que-a-madeira-muda-de-cor'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   AMadreRoute: typeof AMadreRoute
   ArquitetosRoute: typeof ArquitetosRoute
   ContatoRoute: typeof ContatoRoute
+  LpPortasRoute: typeof LpPortasRoute
   PortasRoute: typeof PortasRoute
   ProjetosRoute: typeof ProjetosRoute
   BlogPorQueAMadeiraMudaDeCorRoute: typeof BlogPorQueAMadeiraMudaDeCorRoute
@@ -202,6 +215,13 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lp-portas': {
+      id: '/lp-portas'
+      path: '/lp-portas'
+      fullPath: '/lp-portas'
+      preLoaderRoute: typeof LpPortasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portas': {
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   AMadreRoute: AMadreRoute,
   ArquitetosRoute: ArquitetosRoute,
   ContatoRoute: ContatoRoute,
+  LpPortasRoute: LpPortasRoute,
   PortasRoute: PortasRoute,
   ProjetosRoute: ProjetosRoute,
   BlogPorQueAMadeiraMudaDeCorRoute: BlogPorQueAMadeiraMudaDeCorRoute,
